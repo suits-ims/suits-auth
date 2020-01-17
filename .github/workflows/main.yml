@@ -7,12 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: Image
-        run: make image
       - name: Deploy
         env:
-          HEROKU_APP_NAME:    "suits-auth"
+          HEROKU_APP_NAME:    ${{ secrets.HEROKU_APP_NAME }}
           HEROKU_API_TOKEN:   ${{ secrets.HEROKU_API_TOKEN }}
-          HEROKU_API_KEY:     ${{ secrets.HEROKU_API_TOKEN }}
         if: github.ref == 'refs/heads/master' && job.status == 'success'
         run: make deploy
