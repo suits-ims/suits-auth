@@ -1,5 +1,5 @@
 NAME  	:= suits-auth
-TAG   	?= 1.0.0
+TAG   	?= 1.0.1
 USER_ID ?= $(shell stat -c "%u:%g" .)
 REPO  	:= suitsims
 IMAGE 	:= ${REPO}/${NAME}:${TAG}
